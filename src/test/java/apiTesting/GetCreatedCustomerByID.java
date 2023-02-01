@@ -1,9 +1,6 @@
 package apiTesting;
 
-
-import io.restassured.matcher.RestAssuredMatchers.*;
 import io.restassured.response.Response;
-import org.hamcrest.Matchers.*;
 
 import static io.restassured.RestAssured.given;
 
@@ -40,7 +37,7 @@ public class GetCreatedCustomerByID {
                 .header("content-type", "application/json")
                 .header("authorization", "Bearer token")
                 .get("https://api.stripe.com/v1/customers/cus_NFMkf6txiLdFvl");
-
+                //can also try with cus_NH2CliVaJ5gs5Z
         response.prettyPrint();
         System.out.println("Response code: " + response.statusCode());
 
