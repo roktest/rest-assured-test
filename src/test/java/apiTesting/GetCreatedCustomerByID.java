@@ -17,16 +17,32 @@ public class GetCreatedCustomerByID {
      * content-type
      */
 
+    /** // get all customers
     public static void main(String[] args){
         Response response = given()
             .header("content-type", "application/json")
-            .auth().basic("token_from_app","")
+            .auth().basic("token","")
             .params("limit", 3) // this will retrieve up to 3 customers only
+            // if i want to add more than one param i can use formParams
+            // formParams("limit", 3)
+            // formParams("email", "juancar@email.com")
             .get("https://api.stripe.com/v1/customers");
 
         response.prettyPrint();
         System.out.println("Response code: " + response.statusCode());
 
     }
+     */
 
+    // get a customer by id
+    public static void main(String[] args){
+        Response response = given()
+                .header("content-type", "application/json")
+                .header("authorization", "Bearer token")
+                .get("https://api.stripe.com/v1/customers/cus_NFMkf6txiLdFvl");
+
+        response.prettyPrint();
+        System.out.println("Response code: " + response.statusCode());
+
+    }
 }
